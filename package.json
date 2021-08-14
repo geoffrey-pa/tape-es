@@ -27,6 +27,7 @@
   "dependencies": {
     "chokidar": "^3.5.1",
     "commander": "^4.1.1",
+    "git-changed-files": "^1.0.0",
     "glob": "^7.1.6",
     "tape": "^4.13.3"
   },
