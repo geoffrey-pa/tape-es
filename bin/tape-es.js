@@ -26,15 +26,16 @@ const DEFAULT_GIT_CHANGES_ONLY = false
   const threads = cli.threads ? cli.threads : DEFAULT_THREADS
   const gitChangesOnly = cli.gitChangesOnly ? cli.gitChangesOnly : DEFAULT_GIT_CHANGES_ONLY
 
-  let tests = await match(pattern, ignore, root)
+  const tests = await match(pattern, ignore, root)
+  let filteredTests;
   if (gitChangesOnly) {
     const changedFiles = gitChangedFiles()
-    tests = tests.filter(file => {
+    filteredTests = tests.filter(file => {
       return changedFiles.indexOf(file.replace(/\.test(\.m?js)/, '$1')) !== -1 || changedFiles.indexOf(file) !== -1
     })
   }
 
-  await runAll(tests, threads, root)
+  await runAll(filteredTests || tests, threads, root)
 })().catch(e => {
   console.error(e)
 })
