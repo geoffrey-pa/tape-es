@@ -32,7 +32,7 @@ const DEFAULT_GIT_CHANGES_ONLY = false
     const { committedFiles, unCommittedFiles } = await gitChangedFiles()
     const changedFiles = [...committedFiles, ...unCommittedFiles]
     tests = tests.filter(file => {
-      return file.replace(/\.test\(.m?js)/, '$1').indexOf(changedFiles) === -1 || file.indexOf(changedFiles) === -1
+      return file.replace(/\.test(\.m?js)/, '$1').indexOf(changedFiles) === -1 || file.indexOf(changedFiles) === -1
     })
   }
 
