@@ -1,5 +1,7 @@
 <h1 align="center">Tape-ES</h1>
+
 ## Fork info
+
 Added support to only run the test for git changed files only. Currenly only works when using `**/*.test.mjs` or `**/*.test.js`.
 Test files are expected to live alonside the src files, name should match too except for the `.test*` part.
 To use make use of this please use the cli flag `-g` or `--git-changed-only` example: `tape-es -g **/*.test.mjs`.
