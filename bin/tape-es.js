@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 import cli from 'commander'
-import gitChangedFiles from 'git-changed-files'
 import { runAll } from '../src/runners.js'
-import { match, readPkg } from '../src/util/index.js'
+import { match, readPkg, gitChangedFiles } from '../src/util/index.js'
 
 const DEFAULT_PATTERN = '**/*.spec.js'
 const DEFAULT_IGNORE = '**/node_modules/**'
@@ -29,8 +28,7 @@ const DEFAULT_GIT_CHANGES_ONLY = false
 
   let tests = await match(pattern, ignore, root)
   if (gitChangesOnly) {
-    const { committedFiles, unCommittedFiles } = await gitChangedFiles({ diffFilter: 'M' })
-    const changedFiles = [...committedFiles, ...unCommittedFiles]
+    const changedFiles = gitChangedFiles()
     tests = tests.filter(file => {
       return changedFiles.indexOf(file.replace(/\.test(\.m?js)/, '$1')) !== -1 || changedFiles.indexOf(file) !== -1
     })
