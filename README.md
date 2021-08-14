@@ -19,7 +19,7 @@ To enable use the cli flag `-g` | `--git-changed-only`.
 ```sh
 tape-es -g **/*.test.mjs
 ```
-Does not work with `tepe-watch-es`!
+Does not work with `tape-watch-es`!
 
 ## Features
 
