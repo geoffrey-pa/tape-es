@@ -1,12 +1,5 @@
 <h1 align="center">Tape-ES</h1>
 
-## Fork info
-
-Added support to only run the test for git changed files only. Currenly only works when using `**/*.test.mjs` or `**/*.test.js`.
-Test files are expected to live alonside the src files, name should match too except for the `.test*` part.
-To use make use of this please use the cli flag `-g` or `--git-changed-only` example: `tape-es -g **/*.test.mjs`.
-
-
 A **[Tape.js][]** test runner and watcher for modern JavaScript. Works with both ES modules and CommonJS.
 
 <div align="center">
@@ -17,6 +10,16 @@ A **[Tape.js][]** test runner and watcher for modern JavaScript. Works with both
 
   <a href="https://discord.gg/aSWYgtybzV"><img alt="Discord" src="https://img.shields.io/discord/723296249121603604?color=%23738ADB"></a>
 </div>
+
+## Fork changes
+
+Added support to only run the test for git changed files only. Currenly only works when using `**/*.test.mjs` or `**/*.test.js`.
+Test files are expected to live alonside the src files, name should match too except for the `.test*` part.
+To enable use the cli flag `-g` | `--git-changed-only`.
+```sh
+tape-es -g **/*.test.mjs
+```
+Does not work with `tepe-watch-es`!
 
 ## Features
 
