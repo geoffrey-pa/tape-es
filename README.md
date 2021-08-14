@@ -15,7 +15,7 @@ A **[Tape.js][]** test runner and watcher for modern JavaScript. Works with both
 
 Added support to only run the test for git changed files only. Currenly only works when using `**/*.test.mjs` or `**/*.test.js`.
 Test files are expected to live alonside the src files, name should match too except for the `.test*` part.
-To enable use the cli flag `-g` | `--git-changed-only`.
+To enable use the cli flag `-g` | `--git-changes-only`.
 ```sh
 tape-es -g **/*.test.mjs
 ```

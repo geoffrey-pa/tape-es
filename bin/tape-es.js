@@ -29,10 +29,10 @@ const DEFAULT_GIT_CHANGES_ONLY = false
 
   let tests = await match(pattern, ignore, root)
   if (gitChangesOnly) {
-    const { committedFiles, unCommittedFiles } = await gitChangedFiles()
+    const { committedFiles, unCommittedFiles } = await gitChangedFiles({ diffFilter: 'M' })
     const changedFiles = [...committedFiles, ...unCommittedFiles]
     tests = tests.filter(file => {
-      return file.replace(/\.test(\.m?js)/, '$1').indexOf(changedFiles) === -1 || file.indexOf(changedFiles) === -1
+      return changedFiles.indexOf(file.replace(/\.test(\.m?js)/, '$1')) !== -1 || changedFiles.indexOf(file) !== -1
     })
   }
 
